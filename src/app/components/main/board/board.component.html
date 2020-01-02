@@ -1,0 +1,50 @@
+<section>
+  <div class="contents">
+    <div class="contents-header">
+      <div class="header-title">Board</div>
+      <div class="header-btn-group">
+        <div class="sort-by">
+          <div class="btn-group" dropdown>
+            <div id="sort-by" class="value">
+              Sort by:&nbsp;<span>{{currentSortBy}}</span>
+            </div>
+            <div id="sort-by-arrow" class="arrow-button" dropdownToggle aria-controls="sortby-dropdown">
+            </div>
+            <ul id="sortby-dropdown" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="sort-by-arrow">
+              <li role="menuitem" *ngFor="let item of sortByOptions"><a class="dropdown-item"
+                  (click)="currentSortBy = item">{{item}}</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contents-body">
+      <div *ngFor="let projects of projectsList" class="panel">
+        <div class="panel-title">
+          {{projects.projectType}}
+        </div>
+        <div *ngFor="let project of projects.projects" class="project" (click)="openTaskDetailsModal()">
+          <p class="key">
+            {{project.key}}
+          </p>
+          <img class="type" [src]="'assets/images/ic-' + project.type + '.png'">
+          <h6 class="title">{{project.title}}</h6>
+          <div class="project-info">
+            <div class="priority">
+              <p class="info-title">Priority</p>
+              <p class="info"><img [src]="getImgUrl(project.priority)">{{project.priority}}</p>
+            </div>
+            <div class="epic">
+              <p class="info-title">Epic</p>
+              <p class="info">{{project.epic}}</p>
+            </div>
+            <div class="assignee">
+              <p class="info-title">Assignee</p>
+              <p class="info">{{project.assignee}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

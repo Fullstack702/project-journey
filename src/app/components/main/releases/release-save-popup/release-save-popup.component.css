@@ -1,0 +1,27 @@
+.modal-title {
+    margin-bottom: 5px;
+}
+
+p {
+	font-family: Roboto;
+	font-size: 14px;
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: 0.1px;
+	color: var(--slate-grey);
+    margin-bottom: unset;
+}
+
+form {
+    margin-top: 40px;
+}
+
+.btn-success {
+    margin-top: 10px;
+}
+
+.success-msg {
+    width: 100%;
+}

@@ -1,0 +1,166 @@
+<section>
+  <div class="contents">
+    <div class="contents-header">
+      <div class="header-title">Projects</div>
+      <div class="show-item btn-group" dropdown>
+        <div id="show-item" dropdownToggle aria-controls="show-item-dropdown">Show:&nbsp;<span>{{showItem}}</span></div>
+        <ul id="show-item-dropdown" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="show-item">
+          <li role="menuitem" *ngFor="let item of showItems"><a class="dropdown-item" [ngClass]="getShowItem(item)"
+              (click)="showItem = item"><span class="oval"></span>{{item}}</a>
+          </li>
+        </ul>
+      </div>
+      <div class="header-btn-group">
+        <div class="sort-by">
+          <div class="btn-group" dropdown>
+            <div id="sort-by" class="value">
+              Sort by:&nbsp;<span>{{currentSortBy}}</span>
+            </div>
+            <div id="sort-by-arrow" class="arrow-button" dropdownToggle aria-controls="sortby-dropdown">
+            </div>
+            <ul id="sortby-dropdown" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="sort-by-arrow">
+              <li role="menuitem" *ngFor="let item of sortByOptions"><a class="dropdown-item"
+                  (click)="currentSortBy = item">{{item}}</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contents-body">
+      <div class="projects-list row">
+        <div class="col col-4">
+          <div class="project done" (click)="openProject('done', 100)">
+            <div class="status-btn done">
+              Done
+            </div>
+            <p class="project-type">
+              Mwt
+            </p>
+            <h5 class="project-title">
+              Marketing Team Big Project
+            </h5>
+            <div class="project-info">
+              <div class="start-date">
+                <label>Start Date</label>
+                <p>11/01/2019</p>
+              </div>
+              <div class="Manager">
+                <label>Manager</label>
+                <p>Jane Doe</p>
+              </div>
+            </div>
+            <p class="description">
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+              industry…
+            </p>
+            <p class="progress-pcnt">100%</p>
+            <div class="progress">
+              <div class="progress-bar" style="width: 100%" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                aria-valuemax="100">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col col-4">
+          <div class="project in-progress" (click)="openProject('in-progress', 40)">
+            <div class="status-btn in-progress">
+              In Progress
+            </div>
+            <p class="project-type">
+              Bda
+            </p>
+            <h5 class="project-title">
+              Design Team Project
+            </h5>
+            <div class="project-info">
+              <div class="start-date">
+                <label>Start Date</label>
+                <p>11/29/2019</p>
+              </div>
+              <div class="Manager">
+                <label>Manager</label>
+                <p>Sam Doe </p>
+              </div>
+            </div>
+            <p class="description">
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+              industry…
+            </p>
+            <p class="progress-pcnt">40%</p>
+            <div class="progress">
+              <div class="progress-bar" style="width: 40%" role="progressbar" aria-valuenow="40" aria-valuemin="0"
+                aria-valuemax="100">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col col-4">
+          <div class="project expired" (click)="openProject('expired', 15)">
+            <div class="status-btn expired">
+              Expired
+            </div>
+            <p class="project-type">
+              Sma
+            </p>
+            <h5 class="project-title">
+              Sales Team Project
+            </h5>
+            <div class="project-info">
+              <div class="start-date">
+                <label>Start Date</label>
+                <p>12/08/2019</p>
+              </div>
+              <div class="Manager">
+                <label>Manager</label>
+                <p>Max Doe</p>
+              </div>
+            </div>
+            <p class="description">
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+              industry…
+            </p>
+            <p class="progress-pcnt">15%</p>
+            <div class="progress">
+              <div class="progress-bar" style="width: 15%" role="progressbar" aria-valuenow="15" aria-valuemin="0"
+                aria-valuemax="100">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col col-4">
+          <div class="project closed" (click)="openProject('closed', 100)">
+            <div class="status-btn closed">
+              Closed
+            </div>
+            <p class="project-type">
+              Tga
+            </p>
+            <h5 class="project-title">
+              My New Project
+            </h5>
+            <div class="project-info">
+              <div class="start-date">
+                <label>Start Date</label>
+                <p>12/11/2019</p>
+              </div>
+              <div class="Manager">
+                <label>Manager</label>
+                <p>Max Doe</p>
+              </div>
+            </div>
+            <p class="description">
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+              industry…
+            </p>
+            <p class="progress-pcnt">100%</p>
+            <div class="progress">
+              <div class="progress-bar" style="width: 100%" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+                aria-valuemax="100">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

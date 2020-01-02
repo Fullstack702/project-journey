@@ -1,0 +1,86 @@
+<div class="modal-body clearfix" [ngClass]="releaseStatus">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <span aria-hidden="true"><img src="assets/images/ic-closs.png"></span>
+  </button>
+    <h5 class="modal-title">
+        {{release.releaseName}}
+    </h5>
+    <p class="release-date">
+        Created by&nbsp;<span class="release-owner">John Doe</span>, 2 hours ago
+    </p>
+    <div class="release-info">
+        <div class="status">
+            <label>Status</label>
+            <div class="status-btn" [ngClass]="getShowItem(release.status)">{{release.status}}</div>
+        </div>
+        <div class="projectName">
+            <label>Project Name</label>
+            <p>{{release.projectName}}</p>
+        </div>
+        <div class="startDate">
+            <label>Start Date</label>
+            <p>{{release.startDate}}</p>
+        </div>
+        <div class="releaseDate">
+            <label>Release Date</label>
+            <p>{{release.releaseDate}}</p>
+        </div>
+        <div class="progress" [ngClass]="getShowItem(release.status)">
+            <div class="progress-bar" [ngStyle]="{'width': release.progress + '%'}" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100">
+            </div>
+        </div>
+        <p class="progress-pcnt">{{release.progress}}%</p>
+
+    </div>
+    <hr />
+    <div class="description">
+        <h6>Description</h6>
+        <p class="desc">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. It has survived not only five centuries, but also the leap into electronic typesetting, remaining
+            essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.</p>
+        <!-- <p class="full-description">Show Full Description</p> -->
+    </div>
+
+
+    <div class="details-list">
+        <h6>Task List</h6>
+        <table>
+            <tbody>
+                <ng-container *ngFor="let task of tasks">
+                    <tr>
+                        <td class="key">
+                            <div>{{task.key}}</div>
+                        </td>
+                        <td class="task-name">
+                            <div>{{task.taskName}}</div>
+                        </td>
+                        <td class="epic">
+                            <div>{{task.epic}}</div>
+                        </td>
+                        <td class="type">
+                            <div><img [src]="'assets/images/ic-' + task.type + '.png'"></div>
+                        </td>
+                        <td class="status">
+                            <div>
+                                <div class="status-btn" [ngClass]="task.status">
+                                    {{task.status}}
+                                </div>
+                            </div>
+                        </td>
+                        <td class="environment">
+                            <div>{{task.environment}}</div>
+                        </td>
+                        <td class="priority">
+                            <div><img [src]="getImgUrl(task.priority)">{{task.priority}}</div>
+                        </td>
+                        <td class="assignee">
+                            <div>{{task.assignee}}</div>
+                        </td>
+
+                    </tr>
+                </ng-container>
+
+            </tbody>
+        </table>
+    </div>
+</div>

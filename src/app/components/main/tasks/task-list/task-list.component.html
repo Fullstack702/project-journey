@@ -1,0 +1,148 @@
+<section>
+  <div class="contents">
+    <div class="contents-header">
+      <div class="header-title">Tasks</div>
+      <div class="show-item btn-group" dropdown>
+        <div id="show-item" dropdownToggle aria-controls="show-item-dropdown">Show:&nbsp;<span>{{showItem}}</span></div>
+        <ul id="show-item-dropdown" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="show-item">
+          <li role="menuitem" *ngFor="let item of showItems"><a class="dropdown-item" [ngClass]="getShowItem(item)"
+              (click)="showItem = item"><span class="oval"></span>{{item}}</a>
+          </li>
+        </ul>
+      </div>
+      <div class="header-btn-group">
+        <div class="btn-download">
+          <img src="assets/images/ic-download.png">
+          Download All Task
+        </div>
+        <div class="sort-by">
+          <div class="btn-group" dropdown>
+            <div id="sort-by" class="value">
+              Sort by:&nbsp;<span>{{currentSortBy}}</span>
+            </div>
+            <div id="sort-by-arrow" class="arrow-button" dropdownToggle aria-controls="sortby-dropdown">
+
+            </div>
+            <ul id="sortby-dropdown" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="sort-by-arrow">
+              <li role="menuitem" *ngFor="let item of sortByOptions"><a class="dropdown-item"
+                  (click)="currentSortBy = item">{{item}}</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contents-body">
+      <div class="search-box">
+        <img class="search-icon" src="assets/images/ic-search.png">
+        <input class="search-input" type="text" placeholder="Search by Key, Name, Status etc…">
+        <div class="saved-items btn-group" dropdown>
+          <button id="button-split" dropdownToggle type="button" class="btn"
+            aria-controls="saved-search-dropdown">{{currentSearch ? currentSearch : 'Saved Searches'}}</button>
+          <ul id="saved-search-dropdown" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-split">
+            <li role="menuitem" *ngFor="let savedSearch of savedSearches"><a class="dropdown-item"
+                (click)="currentSearch = savedSearch">{{savedSearch}}<img src="assets/images/ic-trash.png"
+                  (click)="openRemoveFilterModal(savedSearch)"></a></li>
+          </ul>
+        </div>
+        <div class="filter" (click)="openFilterModal()">
+          <img src="assets/images/ic-filter.png">
+        </div>
+      </div>
+      <div class="search-result">
+        <table>
+          <thead>
+            <th>
+              <div class="table-cell">Key</div>
+            </th>
+            <th>
+              <div class="table-cell">Task Name</div>
+            </th>
+            <th>
+              <div class="table-cell">Epic</div>
+            </th>
+            <th>
+              <div class="table-cell">Type</div>
+            </th>
+            <th>
+              <div class="table-cell">Status</div>
+            </th>
+            <th>
+              <div class="table-cell">Environment</div>
+            </th>
+            <th>
+              <div class="table-cell">Release</div>
+            </th>
+            <th>
+              <div class="table-cell">Priority</div>
+            </th>
+            <th>
+              <div class="table-cell">Assignee</div>
+            </th>
+            <th>
+              <div class="table-cell">Created Date</div>
+            </th>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let task of tasks">
+              <tr (click)="openTaskDetailsModal(task.status)">
+                <td class="key">
+                  <div class="table-cell">{{task.key}}</div>
+                </td>
+                <td class="task-name">
+                  <div class="table-cell">{{task.taskName}}</div>
+                </td>
+                <td class="epic">
+                  <div class="table-cell">{{task.epic}}</div>
+                </td>
+                <td class="type">
+                  <div class="table-cell"><img [src]="'assets/images/ic-' + task.type + '.png'"></div>
+                </td>
+                <td class="status">
+                  <div class="table-cell">
+                    <div class="status-btn" [ngClass]="task.status">
+                      {{task.status}}
+                    </div>
+                  </div>
+                </td>
+                <td class="environment">
+                  <div class="table-cell">{{task.environment}}</div>
+                </td>
+                <td class="release">
+                  <div class="table-cell">{{task.release}}</div>
+                </td>
+                <td class="priority">
+                  <div class="table-cell"><img [src]="getImgUrl(task.priority)">{{task.priority}}</div>
+                </td>
+                <td class="assignee">
+                  <div class="table-cell">{{task.assignee}}</div>
+                </td>
+                <td class="created-date">
+                  <div class="table-cell">{{task.createdDate}}</div>
+                </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+      <div class="pagination">
+        <div class="pager">
+          <pagination [nextText]="' '" [previousText]="' '" [maxSize]="7" [totalItems]="totalItems"
+            [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)" [itemsPerPage]="itemsPerPage"></pagination>
+          <div class="btn-group page-size-selector" dropdown>
+            <button type="button" class="btn">{{itemsPerPage}}</button>
+            <button id="button-split1" type="button" dropdownToggle class="btn dropdown-toggle dropdown-toggle-split"
+              aria-controls="page-size-dropdown">
+            </button>
+            <ul id="page-size-dropdown" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-split1">
+              <li role="menuitem" *ngFor="let pageSize of pageSizes"><a class="dropdown-item"
+                  (click)="itemsPerPage = pageSize">{{pageSize}}</a></li>
+            </ul>
+          </div>
+        </div>
+        <p class="page-info">
+          {{((currentPage - 1) * itemsPerPage + 1) + '-' + currentPage * itemsPerPage + ' of ' + totalItems + ' items'}}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

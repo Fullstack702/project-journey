@@ -1,0 +1,132 @@
+.release-type {
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.1px;
+    color: var(--cool-grey);
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.release-date {
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.1px;
+    color: var(--slate-grey);
+    margin-bottom: 40px;
+}
+
+.release-date .release-owner {
+    color: var(--bright-blue);
+}
+
+.release-info {
+    display: flex;
+    width: 100%;
+}
+
+.release-info label {
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    color: var(--cool-grey);
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.release-info>div {
+    margin-right: 40px;
+}
+
+.release-info p {
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.11px;
+    color: var(--charcoal-grey);
+    margin-bottom: unset;
+    line-height: 27px;
+    white-space: nowrap;
+}
+
+.release-info .priority img {
+    margin-right: 4px;
+}
+
+hr {
+    margin-top: 38px;
+    margin-bottom: 30px;
+}
+
+.description {
+    margin-bottom: 40px;
+}
+
+.history {
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.1px;
+    color: var(--dark);
+    margin-bottom: 10px;
+}
+
+.description .desc {
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.71;
+    letter-spacing: 0.1px;
+    color: var(--charcoal-grey);
+    margin-bottom: 20px;
+}
+
+.description .full-description {
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.2px;
+    color: var(--bright-blue);
+    cursor: pointer;
+}
+
+div.progress {
+    width: 200px;
+    margin-top: 45px;
+}
+
+p.progress-pcnt {
+    margin-top: 35px;
+}
+
+td>div {
+    font-size: 16px;
+    padding: 10px 5px;
+}
+
+div.details-list table {
+    margin-left: 0px;
+    margin-right: 0px;
+}

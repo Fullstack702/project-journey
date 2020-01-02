@@ -1,0 +1,123 @@
+.project-type {
+	font-family: Poppins;
+	font-size: 14px;
+	font-weight: 500;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: 0.1px;
+	color: var(--cool-grey);
+	margin-bottom: 5px;
+	text-transform: uppercase;
+}
+
+.project-date {
+	font-family: Roboto;
+	font-size: 14px;
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: 0.1px;
+	color: var(--slate-grey);
+	margin-bottom: 40px;
+}
+
+.project-date .project-owner {
+	color: var(--bright-blue);
+}
+
+.project-info {
+	display: flex;
+	width: 100%;
+}
+
+.project-info label {
+	font-family: Poppins;
+	font-size: 12px;
+	font-weight: 600;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: 0.5px;
+	color: var(--cool-grey);
+	text-transform: uppercase;
+	margin-bottom: 5px;
+}
+
+.project-info > div {
+	margin-right: 50px;
+}
+
+.project-info p {
+	font-family: Roboto;
+	font-size: 16px;
+	font-weight: 500;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: 0.11px;
+	color: var(--charcoal-grey);
+	margin-bottom: unset;
+	line-height: 27px;
+}
+
+.project-info .current-progress {
+	margin-right: 0px;
+}
+
+.project-info .progress-div {
+	display: flex;
+	width: 250px;
+}
+
+.project-info .progress {
+	width: 200px;
+	margin-top: 12px;
+	margin-right: 15px;
+}
+
+hr {
+	margin-top: 38px;
+	margin-bottom: 30px;
+}
+
+.description {
+	margin-bottom: 40px;
+}
+
+.details-list {
+	font-family: Poppins;
+	font-size: 14px;
+	font-weight: 600;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: 0.1px;
+	color: var(--dark);
+	margin-bottom: 10px;
+}
+
+.description .desc {
+	font-family: Roboto;
+	font-size: 14px;
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.71;
+	letter-spacing: 0.1px;
+	color: var(--charcoal-grey);
+	margin-bottom: 20px;
+}
+
+.description .full-description {
+	font-family: Poppins;
+	font-size: 14px;
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: 0.2px;
+	color: var(--bright-blue);
+	cursor: pointer;
+}

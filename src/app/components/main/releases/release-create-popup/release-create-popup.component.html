@@ -1,0 +1,41 @@
+<div class="modal-body clearfix">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <span aria-hidden="true"><img src="assets/images/ic-closs.png"></span>
+  </button>
+    <h4 class="modal-title">New Release</h4>
+    <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
+    </p>
+    <form [formGroup]="type">
+        <div class="form-group">
+            <input type="text" class="form-control" formControlName="releaseName" placeholder="Release Name">
+            <label [ngClass]="{'show': type.value.releaseName.length > 0}">Release Name</label>
+        </div>
+        <div class="form-group">
+            <div class="dropdown-items btn-group" dropdown>
+                <button id="button-split" dropdownToggle type="button" class="btn" aria-controls="project-name-dropdown">{{cProjectName ? cProjectName : 'Project'}}</button>
+                <ul id="project-name-dropdown" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-split">
+                    <li role="menuitem" *ngFor="let projectName of projectNames"><a class="dropdown-item" (click)="cProjectName = projectName">{{projectName}}</a></li>
+                </ul>
+            </div>
+            <label *ngIf="cProjectName != projectName" [ngClass]="{'show': true}">Project</label>
+        </div>
+        <div class="form-group">
+            <div class="dropdown-items btn-group" dropdown>
+                <button id="button-split-rd" dropdownToggle type="button" class="btn" aria-controls="release-date-dropdown">{{cReleaseDate ? cReleaseDate : 'Release Date'}}</button>
+                <ul id="release-date-dropdown" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-split">
+                    <li role="menuitem" *ngFor="let releaseDate of releaseDates"><a class="dropdown-item" (click)="cReleaseDate = releaseDate">{{releaseDate}}</a></li>
+                </ul>
+            </div>
+            <label *ngIf="cReleaseDate != releaseDate" [ngClass]="{'show': true}">Release Date</label>
+        </div>
+        <div class="form-group">
+            <textarea class="form-control" rows="5" cols="60" formControlName="description" placeholder="Description"></textarea>
+            <label [ngClass]="{'show': type.value.description.length > 0}">Description</label>
+        </div>
+    </form>
+    <div class="row">
+        <div class="col col-12">
+            <button type="submit" class="btn btn-outline-success" (click)="createRelease()" [disabled]="!type.valid">Create</button>
+        </div>
+    </div>
+</div>

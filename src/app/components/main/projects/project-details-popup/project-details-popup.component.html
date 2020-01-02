@@ -1,0 +1,151 @@
+<!-- <div class="modal-header">
+
+</div> -->
+<div class="modal-body clearfix" [ngClass]="projectStatus">
+	<button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+		<span aria-hidden="true"><img src="assets/images/ic-closs.png"></span>
+	</button>
+	<h6 class="project-type">
+		Bda
+	</h6>
+	<h5 class="modal-title">
+		Design Team Project
+	</h5>
+	<p class="project-date">
+		Created by&nbsp;<span class="project-owner">John Doe</span>, 2 hours ago
+	</p>
+	<div class="project-info">
+		<div class="status">
+			<label>Status</label>
+			<div class="status-btn" [ngClass]="projectStatus">{{getStatus()}}</div>
+		</div>
+		<div class="manager">
+			<label>Manager</label>
+			<p>Sam Doe</p>
+		</div>
+		<div class="start-date">
+			<label>Start date</label>
+			<p>11/01/2019</p>
+		</div>
+		<div class="current-progress">
+			<label>Progress</label>
+			<div class="progress-div">
+				<div class="progress">
+					<div class="progress-bar" [ngStyle]="{'width': completionPcnt + '%'}" role="progressbar"
+						aria-valuemin="0" aria-valuemax="100">
+					</div>
+				</div>
+				<p class="progress-pcnt">{{completionPcnt + '%'}}</p>
+			</div>
+		</div>
+	</div>
+	<hr />
+	<div class="description">
+		<h6>Description</h6>
+		<p class="desc">
+			Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+			industry's standard dummy text ever since the 1500s.<br /><br />
+			It has survived not only five centuries, but also the leap into electronic typesetting, remaining
+			essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem
+			Ipsum passages.
+		</p>
+		<p class="full-description">Show Full Description</p>
+	</div>
+	<div class="details-list">
+		<h6>Epic List</h6>
+		<table>
+			<tbody>
+				<tr>
+					<td>
+						<div class="table-cell key">
+							CB-1
+						</div>
+					</td>
+					<td>
+						<div class="table-cell title">
+							Testing and Evaludation
+						</div>
+					</td>
+					<td>
+						<div class="table-cell completion-status">
+							<div class="status-btn closed">
+								Closed
+							</div>
+						</div>
+					</td>
+					<td>
+						<div class="table-cell total-tasks">
+							<img src="assets/images/ic-tasks.png">Total Tasks: 8
+						</div>
+					</td>
+
+					<td>
+						<div class="table-cell view-task-list">
+							View Task List
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="table-cell key">
+							BDA
+						</div>
+					</td>
+					<td>
+						<div class="table-cell title">
+							Create look and feel
+						</div>
+					</td>
+					<td>
+						<div class="table-cell completion-status">
+							<div class="status-btn in-progress">
+								In Progress
+							</div>
+						</div>
+					</td>
+					<td>
+						<div class="table-cell total-tasks">
+							<img src="assets/images/ic-tasks.png">Total Tasks: 24
+						</div>
+					</td>
+
+					<td>
+						<div class="table-cell view-task-list">
+							View Task List
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="table-cell key">
+							MWT
+						</div>
+					</td>
+					<td>
+						<div class="table-cell title">
+							Marketing
+						</div>
+					</td>
+					<td>
+						<div class="table-cell completion-status">
+							<div class="status-btn in-progress">
+								In Progress
+							</div>
+						</div>
+					</td>
+					<td>
+						<div class="table-cell total-tasks">
+							<img src="assets/images/ic-tasks.png">Total Tasks: 11
+						</div>
+					</td>
+
+					<td>
+						<div class="table-cell view-task-list">
+							View Task List
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

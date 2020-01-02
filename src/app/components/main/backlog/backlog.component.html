@@ -1,0 +1,122 @@
+<section>
+  <div class="contents">
+    <div class="contents-header">
+      <div class="header-title">Backlog</div>
+      <div class="header-btn-group">
+        <div class="sort-by">
+          <div class="btn-group" dropdown>
+            <div id="sort-by" class="value">
+              Sort by:&nbsp;<span>{{currentSortBy}}</span>
+            </div>
+            <div id="sort-by-arrow" class="arrow-button" dropdownToggle aria-controls="sortby-dropdown">
+
+            </div>
+            <ul id="sortby-dropdown" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="sort-by-arrow">
+              <li role="menuitem" *ngFor="let item of sortByOptions"><a class="dropdown-item"
+                  (click)="currentSortBy = item">{{item}}</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contents-body">
+      <div class="search-box">
+        <img class="search-icon" src="assets/images/ic-search.png">
+        <input class="search-input" type="text" placeholder="Search by Key, Name, Status etc…">
+        <button class="btn btn-success" *ngIf="allCheckedType">Set Selected to Discovery</button>
+        <!-- <div class="set-to-discovery">
+          
+        </div> -->
+      </div>
+      <div class="search-result">
+        <table>
+          <thead>
+            <th class="check-box">
+              <div class="table-cell">
+                <label class="check-input" [ngClass]="{'something-checked': allCheckedType === 2 ? true : false}">
+                  <input type="checkbox" [(ngModel)]="allCheckedType" (change)="onChangeAllCheck()">
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+            </th>
+            <th>
+              <div class="table-cell">Key</div>
+            </th>
+            <th>
+              <div class="table-cell">Task Name</div>
+            </th>
+            <th>
+              <div class="table-cell">Epic</div>
+            </th>
+            <th>
+              <div class="table-cell">Type</div>
+            </th>
+            <th>
+              <div class="table-cell">Priority</div>
+            </th>
+            <th>
+              <div class="table-cell">Created User</div>
+            </th>
+            <th>
+              <div class="table-cell">Created Date</div>
+            </th>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let task of tasks; let i = index">
+              <tr (click)="openTaskDetailsModal(task.status)" [ngClass]="{'checked': checked[i]}">
+                <td class="check-box">
+                  <div class="table-cell">
+                    <label class="check-input">
+                      <input type="checkbox" [(ngModel)]="checked[i]" (change)="onCheckClicked()">
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </td>
+                <td class="key">
+                  <div class="table-cell">{{task.key}}</div>
+                </td>
+                <td class="task-name">
+                  <div class="table-cell">{{task.taskName}}</div>
+                </td>
+                <td class="epic">
+                  <div class="table-cell">{{task.epic}}</div>
+                </td>
+                <td class="type">
+                  <div class="table-cell"><img [src]="'assets/images/ic-' + task.type + '.png'"></div>
+                </td>
+                <td class="priority">
+                  <div class="table-cell"><img [src]="getImgUrl(task.priority)">{{task.priority}}</div>
+                </td>
+                <td class="created-user">
+                  <div class="table-cell">{{task.createdUser}}</div>
+                </td>
+                <td class="created-date">
+                  <div class="table-cell">{{task.createdDate}}</div>
+                </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+      <div class="pagination">
+        <div class="pager">
+          <pagination [nextText]="' '" [previousText]="' '" [maxSize]="7" [totalItems]="totalItems"
+            [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)" [itemsPerPage]="itemsPerPage"></pagination>
+          <div class="btn-group page-size-selector" dropdown>
+            <button type="button" class="btn">{{itemsPerPage}}</button>
+            <button id="button-split1" type="button" dropdownToggle class="btn dropdown-toggle dropdown-toggle-split"
+              aria-controls="page-size-dropdown">
+            </button>
+            <ul id="page-size-dropdown" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-split1">
+              <li role="menuitem" *ngFor="let pageSize of pageSizes"><a class="dropdown-item"
+                  (click)="itemsPerPage = pageSize">{{pageSize}}</a></li>
+            </ul>
+          </div>
+        </div>
+        <p class="page-info">
+          {{((currentPage - 1) * itemsPerPage + 1) + '-' + currentPage * itemsPerPage + ' of ' + totalItems + ' items'}}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

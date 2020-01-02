@@ -1,0 +1,124 @@
+.projects-list {
+	margin-right: -17.5px !important;
+	margin-left: -17.5px !important;
+}
+
+.projects-list .project {
+	width: 100%;
+	border-radius: 4px;
+	background-color: var(--white);
+	display: block;
+	padding: 19px;
+	margin-top: 35px;
+	position: relative;
+	border: 1px solid rgba(0, 0, 0, 0);
+	cursor: default;
+}
+
+.projects-list .col {
+	padding: 0px 17.5px !important;
+}
+
+.status-btn {
+	position: absolute;
+	top: 19px;
+	right: 19px;
+}
+
+.projects-list .project .project-type {
+	font-size: 16px;
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: 0.1px;
+	color: var(--slate-grey);
+	margin-bottom: 5px;
+	text-transform: uppercase;
+}
+
+.projects-list .project .project-title {
+	font-family: Poppins;
+	font-size: 16px;
+	font-weight: 600;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: 0.1px;
+	color: var(--dark);
+	margin-bottom: 15px;
+}
+
+.projects-list .project .project-info {
+	display: flex;
+	margin-bottom: 17px;
+}
+
+.projects-list .project .project-info .start-date {
+	margin-right: 40px;
+}
+
+.projects-list .project .project-info label {
+	font-size: 12px;
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	color: var(--cool-grey);
+	margin-bottom: 5px;
+}
+
+.projects-list .project .project-info p {
+	font-size: 14px;
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	color: var(--dark);
+	margin-bottom: unset;
+}
+
+.projects-list .project .description {
+	font-size: 14px;
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.43;
+	letter-spacing: normal;
+	color: var(--dark);
+	margin-bottom: 18px;
+}
+
+.projects-list .project .progress-pcnt {
+	font-size: 14px;
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	text-align: right;
+	color: var(--dark);
+	margin-bottom: 5px;
+}
+
+.projects-list .project.done:hover {
+	border: solid 1px var(--weird-green);
+}
+
+.projects-list .project.in-progress:hover {
+	border: solid 1px var(--soft-blue);
+}
+
+.projects-list .project.expired:hover {
+	border: solid 1px var(--grapefruit);
+}
+
+.projects-list .project.closed:hover {
+	border: solid 1px var(--light-periwinkle);
+}
+
+.progress {
+	margin-bottom: 10px;
+}

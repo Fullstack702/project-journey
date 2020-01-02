@@ -1,0 +1,126 @@
+<div class="modal-body clearfix">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <span aria-hidden="true"><img src="assets/images/ic-closs.png"></span>
+  </button>
+    <h4 class="modal-title">Filters</h4>
+    <p>Set one or more options to find the desired task or tasks. For example, all task in status "Done" and "Closed" in create 1.0.</p>
+    <form [formGroup]="type">
+        <div class="form-group">
+            <input type="text" class="form-control" formControlName="key" placeholder="Key">
+            <label [ngClass]="{'show': type.value.key.length > 0}">Key</label>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" formControlName="taskName" placeholder="Task Name">
+            <label [ngClass]="{'show': type.value.taskName.length > 0}">Task Name</label>
+        </div>
+
+        <div class="form-group">
+            <div class="dropdown-items btn-group" dropdown>
+                <button id="button-split-epic" dropdownToggle type="button" class="btn" aria-controls="epic-dropdown">
+                  {{cEpic ? cEpic : 'Epic'}}
+                </button>
+                <ul id="epic-dropdown" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-split">
+                    <li role="menuitem" *ngFor="let epic of epics">
+                        <a class="dropdown-item" (click)="cEpic = epic">{{epic}}</a>
+                    </li>
+                </ul>
+            </div>
+            <label *ngIf="cEpic != epic" [ngClass]="{'show': true}">Epic</label>
+        </div>
+
+        <div class="form-group">
+            <div class="dropdown-items btn-group" dropdown>
+                <button id="button-split-tasktype" dropdownToggle type="button" class="btn" aria-controls="tasktype-dropdown">
+                  {{cTaskType ? cTaskType : 'Type'}}
+                </button>
+                <ul id="tasktype-dropdown" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-split">
+                    <li role="menuitem" *ngFor="let tasktype of tasktypes">
+                        <a class="dropdown-item" (click)="cTaskType = tasktype">{{tasktype}}</a>
+                    </li>
+                </ul>
+            </div>
+            <label *ngIf="cTaskType != tasktype" [ngClass]="{'show': true}">Type</label>
+        </div>
+
+        <div class="form-group">
+            <div class="dropdown-items btn-group" dropdown>
+                <button id="button-split-epic" dropdownToggle type="button" class="btn" aria-controls="epic-dropdown">
+      {{cStatus ? cStatus : 'Status'}}
+    </button>
+                <ul id="epic-dropdown" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-split">
+                    <li role="menuitem" *ngFor="let status of statuses">
+                        <a class="dropdown-item" (click)="cStatus = status">{{status}}</a>
+                    </li>
+                </ul>
+            </div>
+            <label *ngIf="cStatus != status" [ngClass]="{'show': true}">Status</label>
+        </div>
+
+        <div class="form-group">
+            <div class="dropdown-items btn-group" dropdown>
+                <button id="button-split-env" dropdownToggle type="button" class="btn" aria-controls="env-dropdown">
+                  {{cEnvironment ? cEnvironment : 'Environment'}}
+                </button>
+                <ul id="env-dropdown" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-split">
+                    <li role="menuitem" *ngFor="let environment of environments">
+                        <a class="dropdown-item" (click)="cEnvironment = environment">{{environment}}</a>
+                    </li>
+                </ul>
+            </div>
+            <label *ngIf="cEnvironment != environment" [ngClass]="{'show': true}">Environment</label>
+        </div>
+        <div class="form-group">
+            <div class="dropdown-items btn-group" dropdown>
+                <button id="button-split-release" dropdownToggle type="button" class="btn" aria-controls="release-dropdown">
+                  {{cRelease ? cRelease : 'Release'}}
+                </button>
+                <ul id="release-dropdown" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-split">
+                    <li role="menuitem" *ngFor="let release of releases">
+                        <a class="dropdown-item" (click)="cRelease = release">{{release}}</a>
+                    </li>
+                </ul>
+            </div>
+            <label *ngIf="cRelease != release" [ngClass]="{'show': true}">Release</label>
+        </div>
+        <div class="form-group">
+            <div class="dropdown-items btn-group" dropdown>
+                <button id="button-split-rd" dropdownToggle type="button" class="btn" aria-controls="priority-dropdown">
+                  <span *ngIf="!cPriority">Priority</span>
+                  <span *ngIf="cPriority"><img [src]="getImgUrl(cPriority)">{{cPriority}}</span>
+                </button>
+                <ul id="priority-dropdown" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-split">
+                    <li role="menuitem" *ngFor="let priority of priorities">
+                        <a class="dropdown-item" (click)="cPriority = priority"><img [src]="getImgUrl(priority)">{{priority}}</a>
+                    </li>
+                </ul>
+            </div>
+            <label *ngIf="cPriority != priority" [ngClass]="{'show': true}">Priority</label>
+        </div>
+        <div class="form-group">
+
+            <input type="text" class="form-control" formControlName="assignee" placeholder="Assignee">
+            <label [ngClass]="{'show': type.value.assignee.length > 0}">Assignee</label>
+        </div>
+        <div class="form-group">
+            <div class="dropdown-items btn-group" dropdown>
+                <button id="button-split-rd" dropdownToggle type="button" class="btn" aria-controls="create-date-dropdown">{{cCreateDate ? cCreateDate : 'Create Date'}}</button>
+                <ul id="create-date-dropdown" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-split">
+                    <li role="menuitem" *ngFor="let createDate of createDates"><a class="dropdown-item" (click)="cCreateDate = createDate">{{createDate}}</a></li>
+                </ul>
+            </div>
+            <label *ngIf="cCreateDate != createDate" [ngClass]="{'show': true}">Create Date</label>
+        </div>
+
+
+    </form>
+    <div class="row">
+        <div class="col col-6">
+            <button type="submit" class="btn btn-outline-success" (click)="saveSearch()" [disabled]="!type.valid">Save this
+        Search</button>
+        </div>
+        <div class="col col-6">
+            <button type="submit" class="btn btn-success" (click)="applyFilters()" [disabled]="!type.valid">Apply
+        Filters</button>
+        </div>
+    </div>
+</div>

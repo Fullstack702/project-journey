@@ -1,0 +1,34 @@
+<section>
+  <div class="header-title">
+    Log In
+  </div>
+  <div class="description">
+    Just log in if you have an account in here.
+  </div>
+  <div class="panel">
+    <form [formGroup]="type" (ngSubmit)="login()">
+      <div class="form-group" [ngClass]="{'error': pwdError}">
+        <input type="email" class="form-control" formControlName="email" aria-describedby="emailHelp"
+          placeholder="Email">
+        <label [ngClass]="{'show': type.value.email.length > 0}">Email</label>
+      </div>
+      <div class="form-group" [ngClass]="{'error': pwdError}">
+        <input type="{{togglePwd ? 'password' : 'text'}}" class="form-control" formControlName="password" placeholder="Password">
+        <label [ngClass]="{'show': type.value.password.length > 0}">Password</label>
+        <img class="eye-icon" src="{{'assets/images/' + (togglePwd ? 'ic-visible.png' : 'ic-not-visible.png')}}" (click)="togglePwd = !togglePwd">
+      </div>
+      <div class="form-group d-flex mb-0">
+        <label class="check-input">Remember Me
+          <input type="checkbox" checked="checked">
+          <span class="checkmark"></span>
+        </label>
+        <a class="forgot-pwd" routerLink="/auth/forgot-password" routerLinkActive="active">Forgot Password</a>
+      </div>
+      <button type="submit" class="btn btn-success" [disabled]="!type.valid">Login</button>
+    </form>
+  </div>
+  <div class="err-msg" [ngClass]="{'error': pwdError}">
+    Sorry, this password doesn't match this email address.<br/>
+    Please try again or click "Forgot password" to reset your password.
+  </div>
+</section>

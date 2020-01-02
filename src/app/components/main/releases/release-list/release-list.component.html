@@ -1,0 +1,132 @@
+<section>
+    <div class="contents">
+        <div class="contents-header">
+            <div class="header-title">Releases</div>
+            <div class="show-item btn-group" dropdown>
+                <div id="show-item" dropdownToggle aria-controls="show-item-dropdown">
+                    Show:&nbsp;<span>{{ showItem }}</span>
+                </div>
+                <ul id="show-item-dropdown" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="show-item">
+                    <li role="menuitem" *ngFor="let item of showItems">
+                        <a class="dropdown-item" [ngClass]="getShowItem(item)" (click)="showItem = item"><span
+                class="oval"></span>{{ item }}</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="header-btn-group">
+                <div class="sort-by">
+                    <div class="btn-group" dropdown>
+                        <div id="sort-by" class="value">
+                            Sort by:&nbsp;<span>{{ currentSortBy }}</span>
+                        </div>
+                        <div id="sort-by-arrow" class="arrow-button" dropdownToggle aria-controls="sortby-dropdown"></div>
+                        <ul id="sortby-dropdown" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="sort-by-arrow">
+                            <li role="menuitem" *ngFor="let item of sortByOptions">
+                                <a class="dropdown-item" (click)="currentSortBy = item">{{
+                                    item
+                                }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="btn-create" (click)="openCreateReleaseModal()">
+                    <img class="ic_Plus" src="assets/images/ic-plus.png" /> Create New Release
+                </div>
+            </div>
+        </div>
+        <div class="contents-body">
+            <div class="search-box">
+                <img class="search-icon" src="assets/images/ic-search.png" />
+                <input class="search-input" type="text" placeholder="Search by Name, Status etc…" />
+            </div>
+            <div class="search-result">
+                <table>
+                    <thead>
+                        <th>
+                            <div class="table-cell">Release Name</div>
+                        </th>
+                        <th>
+                            <div class="table-cell">Description</div>
+                        </th>
+                        <th>
+                            <div class="table-cell">Project Name</div>
+                        </th>
+                        <th>
+                            <div class="table-cell">Status</div>
+                        </th>
+                        <th>
+                            <div class="table-cell">Start Date</div>
+                        </th>
+                        <th>
+                            <div class="table-cell">Release Date</div>
+                        </th>
+                        <th>
+                            <div class="table-cell">Progress</div>
+                        </th>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngFor="let release of releases">
+                            <tr (click)="openReleaseDetailsModal(release)">
+
+                                <td class="release-name">
+                                    <div class="table-cell">{{ release.releaseName }}</div>
+                                </td>
+
+                                <td class="epic">
+                                    <div class="table-cell">{{ release.description }}</div>
+                                </td>
+
+                                <td class="type">
+                                    <div class="table-cell">{{ release.projectName }}</div>
+                                </td>
+
+                                <td class="status">
+                                    <div class="table-cell">
+                                        <div class="status-btn" [ngClass]="release.statusClass">
+                                            {{ release.status }}
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="startDate">
+                                    <div class="table-cell">{{ release.startDate }}</div>
+                                </td>
+                                <td class="releaseDate">
+                                    <div class="table-cell">{{ release.releaseDate }}</div>
+                                </td>
+                                <td>
+                                    <div class="table-cell" style="display:flex;" [ngClass]="release.statusClass">
+                                        <div class="progress">
+                                            <div class="progress-bar" [ngStyle]="{'width': release.progress + '%'}" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                            </div>
+                                        </div>
+                                        <p class="progress-pcnt">{{release.progress}}%</p>
+                                    </div>
+                                </td>
+
+                            </tr>
+                        </ng-container>
+                    </tbody>
+                </table>
+            </div>
+            <!-- <div class="pagination">
+                <div class="pager">
+                    <pagination [nextText]="' '" [previousText]="' '" [maxSize]="7" [totalItems]="totalItems" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)" [itemsPerPage]="itemsPerPage"></pagination>
+                    <div class="btn-group page-size-selector" dropdown>
+                        <button type="button" class="btn">{{ itemsPerPage }}</button>
+                        <button id="button-split1" type="button" dropdownToggle class="btn dropdown-toggle dropdown-toggle-split" aria-controls="page-size-dropdown"></button>
+                        <ul id="page-size-dropdown" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-split1">
+                            <li role="menuitem" *ngFor="let pageSize of pageSizes">
+                                <a class="dropdown-item" (click)="itemsPerPage = pageSize">{{
+                  pageSize
+                }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="page-info">
+                    {{ (currentPage - 1) * itemsPerPage + 1 + "-" + currentPage * itemsPerPage + " of " + totalItems + " items" }}
+                </p>
+            </div> -->
+        </div>
+    </div>
+</section>

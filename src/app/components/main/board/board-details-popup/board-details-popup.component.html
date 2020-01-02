@@ -1,0 +1,193 @@
+<div class="modal-body clearfix" [ngClass]="taskStatus">
+	<button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+		<span aria-hidden="true"><img src="assets/images/ic-closs.png"></span>
+	</button>
+	<h6 class="task-type">
+		BDA-18
+	</h6>
+	<h5 class="modal-title">
+		Task for Design Team
+	</h5>
+	<p class="task-date">
+		Created by&nbsp;<span class="task-owner">John Doe</span>, 5:17 PM, 11/29/2019
+	</p>
+	<div class="task-info">
+		<div class="status">
+			<label>Status</label>
+			<div class="status-btn" [ngClass]="taskStatus">{{getStatus()}}</div>
+		</div>
+		<div class="epic">
+			<label>Epic</label>
+			<p>UI</p>
+		</div>
+		<div class="type">
+			<label>Type</label>
+			<p><img src="assets/images/ic-task-list.png"></p>
+		</div>
+		<div class="priority">
+			<label>Priority</label>
+			<p><img src="assets/images/ic-very-low.png">Very Low</p>
+		</div>
+		<div class="assignee">
+			<label>Assignee</label>
+			<p>Sam Doe</p>
+		</div>
+		<div class="epic">
+			<label>Environment</label>
+			<p>Local</p>
+		</div>
+		<div class="release">
+			<label>Release</label>
+			<p>1.1.3</p>
+		</div>
+	</div>
+	<hr />
+	<div class="description">
+		<h6>Description</h6>
+		<p class="desc">
+			Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+			industry's standard dummy text ever since the 1500s.<br /><br />
+			It has survived not only five centuries, but also the leap into electronic typesetting, remaining
+			essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem
+			Ipsum passages.
+		</p>
+		<!-- <p class="full-description">Show Full Description</p> -->
+	</div>
+	<div class="attachments">
+		<h6>Attachments</h6>
+		<div class="attachments-carousel">
+			<div class="attachment" *ngFor="let attachment of attachments">
+				<img [src]="attachment.url">
+				<label>{{attachment.title}}</label>
+			</div>
+		</div>
+	</div>
+	<div class="comments">
+		<h6>Comments</h6>
+		<div class="comment">
+			<div class="logo back-soft-blue">
+				JD
+			</div>
+			<div class="comment-desc">
+				<h6 class="username">
+					Jane Doe
+				</h6>
+				<p class="upload-date">3:14 PM, 12/15/2019</p>
+				<p class="description">- We would like to have Pageviews, click, conversion and total revenue up in the
+					right corner of the graph. And maybe design them so the look more like buttons that you can turn
+					on/off?
+					- Latest clicks/conversions. Where you currently have the logo for merchant, we should instead have
+					a logo that represent the referring traffic sources (ex. Google or Facebook). So we’re actually
+					missing a column that should say “Source”. And there should be no icon for the merchants.</p>
+			</div>
+		</div>
+		<div class="comment">
+			<div class="logo back-pastel-orange">
+				SD
+			</div>
+			<div class="comment-desc">
+				<h6 class="username">
+					Sam Doe
+				</h6>
+				<p class="upload-date">5 minutes ago</p>
+				<p class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+					Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took
+					a galley of type and scrambled it to make a type specimen book. It has survived not only five
+					centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+			</div>
+		</div>
+		<div class="comment my-comment">
+			<div class="logo" [ngStyle]="{'background-image': 'url(' + myLogo + ')'}">
+				
+			</div>
+			<div class="comment-desc">
+				<input placeholder="Add a comment ...">
+			</div>
+		</div>
+	</div>
+	<div class="details-list">
+		<h6>History</h6>
+		<table>
+			<tbody>
+				<tr>
+					<td>
+						<div class="table-cell name">
+							Jhon Doe
+						</div>
+					</td>
+					<td>
+						<div class="table-cell updated-at">
+							5:17 PM, 11/29/2019
+						</div>
+					</td>
+					<td>
+						<div class="table-cell current-status">
+							Create
+						</div>
+					</td>
+					<td>
+						<div class="table-cell progress-status">
+
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="table-cell name">
+							Jhon Doe
+						</div>
+					</td>
+					<td>
+						<div class="table-cell updated-at">
+							10:42 AM, 12/02/2019
+						</div>
+					</td>
+					<td>
+						<div class="table-cell current-status">
+							Change Status
+						</div>
+					</td>
+					<td>
+						<div class="table-cell progress-status">
+							<div class="status-btn backlog">
+								Backlog
+							</div>
+							<img src="assets/images/ic-right.png">
+							<div class="status-btn in-progress">
+								In Progress
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="table-cell name">
+							Jhon Doe
+						</div>
+					</td>
+					<td>
+						<div class="table-cell updated-at">
+							1:08 PM, 12/04/2019
+						</div>
+					</td>
+					<td>
+						<div class="table-cell current-status">
+							Change Status
+						</div>
+					</td>
+					<td>
+						<div class="table-cell progress-status">
+							<div class="status-btn in-progress">
+								In Progress
+							</div>
+							<img src="assets/images/ic-right.png">
+							<div class="status-btn planning">
+								Planning
+							</div>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

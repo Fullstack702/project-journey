@@ -1,0 +1,22 @@
+<div class="modal-body clearfix">
+  <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <span aria-hidden="true"><img src="assets/images/ic-closs.png"></span>
+  </button>
+  <h4 class="modal-title">Save Search</h4>
+  <p>Give this search a name and you can access it in a few clicks from the "Saved searches" menu.</p>
+  <ng-container *ngIf="!success; else successSection">
+    <form [formGroup]="type" (ngSubmit)="save()">
+      <div class="form-group">
+        <input type="text" class="form-control" formControlName="searchName" placeholder="Search Name">
+        <label [ngClass]="{'show': type.value.searchName.length > 0}">Search Name</label>
+      </div>
+      <button type="submit" class="btn btn-success" [disabled]="!type.valid">Save</button>
+    </form>
+  </ng-container>
+  <ng-template #successSection>
+    <div class="success-msg">
+      Your search has been successfully saved.<br />
+      You'll be redirected to the tasks page in a few sec.
+    </div>
+  </ng-template>
+</div>
